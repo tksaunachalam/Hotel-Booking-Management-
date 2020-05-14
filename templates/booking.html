@@ -1,0 +1,94 @@
+{% extends "layout.html"  %}
+{%block content%}
+<script>
+$(document).ready(function() {
+    $( "#datepicker" ).datepicker({
+        dateFormat: 'dd-mm-yy',
+        changeMonth: true,
+        changeYear: true,
+       // minDate: new Date(2010, 2 - 1, 2),
+        onSelect: function( selectedDate ) {
+            $( "#datepicker2" ).datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $( "#datepicker2" ).datepicker({
+        dateFormat: 'dd-mm-yy',
+        changeMonth: true,
+        changeYear: true,
+        //minDate: new Date(2010, 2 - 1, 2),
+        onSelect: function( selectedDate ) {
+            $( "#datepicker" ).datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+});
+</script>
+
+<div class="w3-display-container w3-content" style="max-width:1500px;">
+    <img class="w3-image" src="{{ url_for('static',filename='images/formbg3.jpeg')}}" alt="The Hotel" style="min-width:1000px" width="1500" height="800">
+    <div class="w3-display-left w3-padding w3-col l6 m8" style="max-width: 800px;">
+      <div class="w3-container w3-red">
+        <h2><i class="fa fa-bed w3-margin-right"></i>Booking</h2>
+      </div>
+      <div class="w3-container w3-white w3-padding-16">
+  
+        <!-- <div id="pop" style="display:none;position:sticky">
+            <div class="col-md-8" style="border: 0px; float:left">
+              {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                  {{message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+              {% endwith %} 
+           -->
+        <!-- <form action="" target=""> -->
+        <form method="POST" action="">
+    
+
+            {{ form.hidden_tag() }}
+          <div class="w3-row-padding" style="margin:0 -16px;">
+            <div class="w3-half w3-margin-bottom">
+
+              <!--<label><i class="fa fa-calendar-o"></i> Check In</label> -->
+              {{ form.CheckIn.label(class="fa fa-calendar-o") }}
+                
+
+              {{ form.CheckIn(class_="w3-input w3-border",type="text") }}
+             <!-- <input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckIn" id="datepicker" required>-->
+            </div>
+            <div class="w3-half">
+              <!-- <label><i class="fa fa-calendar-o"></i> Check Out</label>
+              <input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckOut" id="datepicker2" required> -->
+              {{ form.CheckOut.label(class="fa fa-calendar-o") }}
+  
+
+              {{ form.CheckOut(class_="w3-input w3-border",type="text") }}
+
+            
+            </div>
+          </div>
+          <div class="w3-row-padding" style="margin:8px -16px;">
+            <div class="w3-half w3-margin-bottom">
+              <label><i class="fa fa-male"></i> Adults</label>
+              <!-- <input class="w3-input w3-border" type="number" value="1" name="Adults" min="1" max="6"> -->
+              {{ form.Adults(class_="w3-input w3-border",type="number",value="1",min="1",max="6") }}
+
+            </div>
+            <div class="w3-half">
+              <label><i class="fa fa-child"></i> Kids</label>
+              {{ form.Kids(class_="w3-input w3-border",type="number",value="1",min="1",max="6") }}
+
+            <!-- <input class="w3-input w3-border" type="number" value="0" name="Kids" min="0" max="6"> -->
+            </div>
+          </div>
+         <!-- <button class="w3-button w3-dark-grey" type="submit" name="Search"><i class="fa fa-search w3-margin-right"></i> Search availability</button>-->
+          {{ form.Search(class="w3-button w3-dark-grey") }}
+
+        </form>
+      </div>
+    </div>
+  </div>
+  
+{% endblock content %}
