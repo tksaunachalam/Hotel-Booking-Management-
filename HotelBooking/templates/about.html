@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{%block content%}
+
+
+<div class="w3-row-padding" id="about">
+    <div class="w3-col l4 12">
+      <h3>About</h3>
+      <h6>Our hotel is one of a kind. It is truely amazing. Our chairman Mr.Arunachalam is a well known businessman and a movie-critic across the country.His knowledge of movies has helped us to build the best scenic hotels for people of all tastes.</h6>
+    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
+    </div>
+    <div class="w3-col l8 12">
+      <!-- Image of location/map -->
+      <img src="{{ url_for('static',filename='images/image-deluxeroom.jpg')}}" class="w3-image w3-greyscale" style="width:100%;">
+    </div>
+  </div>
+  
+  <div class="w3-row-padding w3-large w3-center" style="margin:32px 0">
+    <div class="w3-third"><i class="fa fa-map-marker w3-text-red"></i> 423 ECR, Chennai, India</div>
+    <div class="w3-third"><i class="fa fa-phone w3-text-red"></i> Phone: +91 7904037035</div>
+    <div class="w3-third"><i class="fa fa-envelope w3-text-red"></i> Email: tkshotels@gmail.com</div>
+  </div>
+
+  <div class="w3-panel w3-red w3-leftbar w3-padding-32">
+    <h6><i class="fa fa-info w3-deep-orange w3-padding w3-margin-right"></i> On demand, we can offer playstation, babycall, children care, dog equipment, etc.</h6>
+  </div>
+
+  <div class="w3-container">
+    <h3>Our Hotels</h3>
+    <h6>You can find our hotels anywhere in the world:</h6>
+  </div>
+  
+  <div class="w3-row-padding w3-padding-16 w3-text-white w3-large">
+    <div class="w3-half w3-margin-bottom">
+      <div class="w3-display-container">
+        <img src="{{ url_for('static',filename='images/hotel1.jpg')}}" alt="Chennai" style="width:100%" height=367>
+        <span class="w3-display-bottomleft w3-padding">Chennai</span>
+      </div>
+    </div>
+    <div class="w3-half">
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="{{ url_for('static',filename='images/hotel2.jpg')}}" alt="Mumbai" style="width:100%" height=175>
+            <span class="w3-display-bottomleft w3-padding">Mumbai</span>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="{{ url_for('static',filename='images/hotel3.jpg')}}" alt="Kochi" style="width:100%" height=175>
+            <span class="w3-display-bottomleft w3-padding">Kochi</span>
+          </div>
+        </div>
+      </div>
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="{{ url_for('static',filename='images/hotel4.jpg')}}" alt="Jaipur" style="width:100%" height=175>
+            <span class="w3-display-bottomleft w3-padding">Jaipur</span>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="{{ url_for('static',filename='images/hotel5.jpg')}}" alt="Delhi" style="width:100%" height=175>
+            <span class="w3-display-bottomleft w3-padding">Delhi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

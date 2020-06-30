@@ -1,0 +1,41 @@
+{% extends "layout.html"  %}
+{%block content%}
+
+
+<h1>Your Bookings </h1> <br>
+<table class="table table-striped">
+    <tr>
+        <th>Booking-id</th>
+        <th>Room-id</th>
+        <th>Payment</th>
+        <th>CheckIn</th>
+        <th>CheckOut</th>
+        <th></th>
+        <th>Cancel <br>
+        <span style="align-self:center;font-size: 2.5mm;">(Before 48 hours)</span>
+        </th>
+        <th></th>
+    </tr>
+    <!-- here rooms is list passed from routes fn containing all the rooms info  -->
+    {% for booking in bookings %}
+    <tr>
+        
+        <td style="color:blueviolet; font-weight: bold; font-size:5mm;" >{{booking.b_id}}</td>
+        <td style="color:crimson; font-weight: bold;">{{booking.r_id}}</td>
+        <td style="color:darkslategray;font-size:4mm">{{booking.payment_mode}}</td>
+        <td style="color:cornflowerblue; font-weight: bold;">{{booking.check_in_date}}</td>
+        <td style="color:cornflowerblue; font-weight: bold;">{{booking.check_out_date}}</td>
+        <td ><a class="btn btn-warning" href="printbill/{{booking.b_id}}">Print</a></td>
+        <!-- cancelation deadline  -->
+        {% if booking.check_in_date.date() - current_date > cancel_deadline  %}
+        <td><a href="cancel/{{booking.b_id}} " class="btn btn-danger" method="POST"> Cancel  </a></td>
+        {% else %}
+        <td>Cancelation Period Over</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+<img src="{{ url_for('static',filename='images/hotel2.jpg')}}" style="height:7in;width: 100%;">
+{% endblock content %}

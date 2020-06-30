@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--All CSS and Javascripts-->
+<link rel="stylesheet" href="{{ url_for('static', filename ='template1.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename ='template2.css') }}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style>
+    #content img{
+        float: left;
+        width: 50%;
+        height:fit-content;
+        
+    }
+    #text {
+        
+        padding-top: 12%;
+        padding-left:60%;
+        font-weight: bold;
+    
+    }
+    #in,#out,#cost {
+        display: inline;
+        color: crimson;
+        
+    }    
+
+</style>
+</head>
+<body>
+    <div id="header">
+        <div class="w3-bar w3-white w3-large" style="position: sticky;top:0">
+            <a href="{{ url_for('rooms') }}" class="w3-bar-item w3-button w3-red w3-mobile" ><i class="fa fa-map-marker w3-margin-right"></i>Chennai</a>
+            <a href="#rooms" class="w3-bar-item w3-button w3-mobile">Rooms</a>
+            
+            <a href="{{ url_for('about') }}" class="w3-bar-item w3-button w3-mobile">About</a>
+            <a href="{{ url_for('contact') }}" class="w3-bar-item w3-button w3-mobile">Contact</a>
+            {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}" class="w3-bar-item w3-button w3-red w3-right w3-mobile" onclick="myFunction()"><i class="fa fa-user w3-margin-right"></i>Logout</a>
+            {% else%}
+            <a href="{{ url_for('login') }}" class="w3-bar-item w3-button w3-red w3-right w3-mobile" onclick="myFunction()"><i class="fa fa-user w3-margin-right"></i>Login</a>
+            {% endif %}
+        </div>
+            
+    </div>
+    <div id="content">
+
+        <pre><h1>{{room.r_type}} Room</h1></pre>
+        {% if room.r_type =='single'%}
+        <img src="{{ url_for('static',filename='images/image-singleroom.jpg')}}">
+        {% elif room.r_type =='Double'%}
+        <img src="{{ url_for('static',filename='images/doubleroom.jpg')}}">
+        {% else %}
+        <img src="{{ url_for('static',filename='images/image-deluxeroom.jpg')}}" style="height:7in;width: 50%;">
+        {% endif %}
+
+        <div id="text">
+            <form method="POST" action="">
+                {{ amn_form.hidden_tag() }}
+                <div class="form-group">
+                    {{ amn_form.Amenities.label(class="form-control-label") }}&nbsp;
+                    {{ amn_form.Amenities(size="2",class="btn btn-info dropdown-toggle",multiple=True) }}
+                     <div style="font-weight: lighter;font-size: 2.2mm;">(for multiple Amenities hold ctrl and select)</div>
+                </div>
+            </form>
+  
+            Checkin Date :<div id="in">{{check_in}}</div>
+            <br><br>
+            CheckOut Date :<div id="out">{{check_out}}</div>
+            <br><br>
+            Cost :<div id="cost">RS {{amount}}</div>
+
+            <br><br><br>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <!-- <fieldset class="form-group"> -->
+            <div class="form-group">
+                {{ form.ModeOfPayment.label(class="form-control-label") }}&nbsp;
+                <!-- {{ form.ModeOfPayment(class="form-control form-control-lg") }} -->
+                {{ form.ModeOfPayment(class="btn btn-info dropdown-toggle") }}
+            </div>
+
+            <div class="form-group">
+                {{form.Submit(class="btn btn-primary btn-lg") }}    
+             &nbsp; &nbsp;&nbsp;&nbsp;
+                {{form.Cancel(class="btn btn-warning") }}
+            </form>
+            <!-- <a href="{{ url_for('hello') }}" method="POST"><button class="btn btn-warning">Cancel</button></a> -->
+            </div>
+        <!-- </fieldset> -->
+    </form>
+
+        </div>
+    </div>
+</body>

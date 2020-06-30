@@ -1,0 +1,37 @@
+{% extends "layout.html"  %}
+{%block content%}
+
+
+
+<h1 style="color:black;">Rooms available</h1>
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Number</th>
+        <th>Type</th>
+        <th>Capacity</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    <!-- here rooms is list passed from routes fn containing all the rooms info  -->
+    {% for room in rooms %}
+    <tr>
+        <td style="font-weight: bold;">{{room.r_id}}</td>
+        <td>{{room.r_no}}</td>
+        <td style="font-weight: bold; font-size: 4mm; color:forestgreen;">{{room.r_type}}</td>
+        <td>{{room.r_capacity}}</td>
+        <td style=" font-weight: bold; font-variant-numeric: initial; color:darkred;">{{Cost.query.filter_by(item = room.r_type + " room").first().price}}</td>
+        
+        <!-- if the room is not booked and the room capacity is greater or = to user's requirement -->
+        {% if room.r_status == 0 and room.r_capacity >= search_input['capacity'] %}
+        <td><a href="bookings/{{room.r_id}} " class="btn btn-success" method="POST">    Book     </a></td>
+        {% else %}
+        <td><a href="#" class="btn btn-danger">Not Available</a></td>
+        {% endif %}
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock content %}

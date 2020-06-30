@@ -73,9 +73,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
         </div>{% endblock %}
       </div>
       <div class="col-md-4" style="float:right;width:25%">
-        <h4 style="text-align: center; padding-top: 50%;">Don't have an account?</h4>
+        <h4 style="text-align: center; padding-top: 50%;">Have an account?</h4>
         <div style="padding-left: 15%;padding-right: 30%">
-          <a href="home" class="w3-bar-item w3-button w3-red w3-right w3-mobile" style="align-content: center;float:none;"><i class="fa fa-user w3-margin-right"></i>SignIn</a>
+          <a href="{{url_for('login')}}" class="w3-bar-item w3-button w3-red w3-right w3-mobile" style="align-content: center;float:none;"><i class="fa fa-user w3-margin-right"></i>SignIn</a>
         </div>    
     </div>
     </div>

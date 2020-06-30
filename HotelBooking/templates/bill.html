@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename ='invoice.css') }}" media="print" rel="stylesheet">
+    <title>Invoice</title>
+    <meta name="description" content="Invoice demo sample">
+    <meta name="author" content="Kozea">
+  </head>
+
+  <body>
+    <h1>Invoice</h1>
+
+    <aside>
+      <address id="from">
+        TKS GROUP OF HOTELS, Inc.<br>
+        143 Blue Beach<br>
+        ECR, Chennai 600125
+    </address>
+
+      <address id="to">
+        NAME:{{username}}<br>
+        {{email}}
+      </address>
+    </aside>
+
+    <dl id="informations">
+      <dt>Invoice number</dt>
+      <dd>12345</dd>
+      <dt>Date</dt>
+      <dd>{{booking_date}}</dd>
+    </dl>
+
+
+    <div>
+        Booking Id: {{b_id}}
+    </div>
+    <table>
+      <thead>
+        <th>Description</th>
+        <th>CheckIn</th>
+        <th>CheckOut</th>
+        <th>Subtotal</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{r_type}}</td>
+          <td>{{check_in}}</td>
+          <td>{{check_out}}</td>
+          <td>{{cost}}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <button type="button" class="btn btn-secondary">Save As Pdf</button>    
+    <a href="{{ url_for('hello') }}" class="btn btn-secondary">Home</a>
+
+
+  </body>
+</html>

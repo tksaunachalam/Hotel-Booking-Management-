@@ -1,0 +1,6 @@
+from HotelBooking import db
+from HotelBooking.models import User, Enquiry, Rooms, Bookings, Cost
+
+
+
+ bk =Bookings.query.filter(Bookings.check_out_date < '2020-06-11 00:00:00').first()   

@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, DateField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, DateField, SelectField, RadioField, SelectMultipleField
 from wtforms.validators import DataRequired, Length , Email, EqualTo, ValidationError
-#from formsample import User
+from HotelBooking.models import User
 from flask import flash
 
 
@@ -51,4 +51,16 @@ class BookingForm(FlaskForm):
     Search = SubmitField('Search Availability')
 
 
+class EnquiryForm(FlaskForm):
+    Name = StringField('Name',validators=[DataRequired()])
+    Email = StringField('Email', validators=[DataRequired(), Email()] )
+    Msg = StringField('Message', validators=[DataRequired()])
+    Submit = SubmitField('Send Message')
 
+class ConfirmBooking(FlaskForm):
+    Submit = SubmitField('Book')
+    ModeOfPayment = SelectField('Select Payment Method',choices=[('card','Card'),('cash','Cash')])
+    Cancel = SubmitField('Cancel')
+
+class AmenityForm(FlaskForm):
+    Amenities = SelectMultipleField('Select Amenities if required', choices=[('4','Extra-Bed'),('5','PlayStation'),('6','dog-care'),('7','spa'),('8','laundry')])

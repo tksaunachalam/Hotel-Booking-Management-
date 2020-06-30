@@ -1,0 +1,51 @@
+Product       Cost              Code 
+
+single room : Rs 1600/night     1
+Double room : Rs 2400/night     2
+Deluxe room : Rs 3500/night     3
+
+
+Extra-Bed   : Rs 500/night      4
+PlayStation :  Rs 250           5
+dog-care       Rs 400           6
+spa            Rs 500           7
+laundry        Rs 250           8
+
+
+inclusive of 18%gst
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Book Hotel Rooms With Ease
+
+1. Register-> Login -> Homepage ->Booknow enter the required details
+2. rooms displayed with respect to availability and capacity 
+3. Confirm the details, amount ,payment method
+4. On confirmation Booking made Visit -> "MyBookings" to see your MyBookings
+5. Provision to cancel your booking 48 hours before the checkin date
+
+
+
+Register->login ->Homepage->Booknow->Rooms->ConfirmBooking->printBill->Homepage->MyBookings->cancel->Homepage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <td>
+                    #{{amen_2}})
+                </td>
+
+                <td>
+                    #{{amen_2.cost}}
+                </td> -->
