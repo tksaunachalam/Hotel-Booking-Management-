@@ -1,3 +1,6 @@
 venv
 __pycache__
 weasyprint.pdf
+DataBase.txt
+Pricing
+site.db

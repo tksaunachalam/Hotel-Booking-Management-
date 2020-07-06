@@ -1,6 +1,6 @@
 import os, random
 from flask import render_template, url_for,flash,redirect, request
-from HotelBooking import app , db ,bcrypt
+from HotelBooking import app , db ,bcrypt, sid, token
 from HotelBooking.forms import RegistrationForm, LoginForm, BookingForm, EnquiryForm, ConfirmBooking, AmenityForm
 from flask_login import login_user,current_user, logout_user, login_required
 from datetime import datetime, date , timedelta
@@ -9,9 +9,8 @@ from twilio.rest import Client
 # for printing pdf
 from flask_weasyprint import HTML, render_pdf
 
-
-account_sid = 'AC73bcc3e50f0dd1dd8364ba3651598f66'
-auth_token = 'b183116d7684bf4e9a343bee57eeb151'
+account_sid = sid
+auth_token = token
 client = Client(account_sid, auth_token)
 
 
@@ -233,7 +232,8 @@ def mybookings():
     current_date  = date.today() #current date 
     cancel_deadline = timedelta(days = 2)  #can cancel 2 days before checkin
     allbookings = Bookings.query.filter_by(u_id= u_id).all()
-    return render_template('mybookings.html', title="MyBookings", bookings = allbookings, current_date = current_date, cancel_deadline = cancel_deadline)
+    username = User.query.get(u_id).username
+    return render_template('mybookings.html', title="MyBookings", bookings = allbookings, current_date = current_date, cancel_deadline = cancel_deadline, username = username)
 
 @app.route("/cancel/<string:id>", methods=['GET', 'POST'])
 @login_required
@@ -281,4 +281,10 @@ def printbill(id):
 
     return html
     #return render_template('invoice.html', title='Bill', username=username, email=email, b_id=b_id, r_type=r_type, cost=amount, mode_of_payment=mode_of_payment, booking_date=current_date, check_in = check_in, check_out= check_out, html=html)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+
 

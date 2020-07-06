@@ -22,7 +22,7 @@ Book Hotel Rooms With Ease
 1. Register-> Login -> Homepage ->Booknow enter the required details
 2. rooms displayed with respect to availability and capacity 
 3. Confirm the details, amount ,payment method
-4. On confirmation Booking made Visit -> "MyBookings" to see your MyBookings
+4. On confirmation Booking will be made, Visit -> "MyBookings" to see your MyBookings
 5. Provision to cancel your booking 48 hours before the checkin date
 
 
@@ -38,14 +38,3 @@ Register->login ->Homepage->Booknow->Rooms->ConfirmBooking->printBill->Homepage-
 
 
 
-
-
-
-
-                <!-- <td>
-                    #{{amen_2}})
-                </td>
-
-                <td>
-                    #{{amen_2.cost}}
-                </td> -->

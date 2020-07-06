@@ -1,16 +1,116 @@
 {% extends "layout.html" %}
+{%block style%}
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  </style>
+
+
+
+{% endblock %}
+
+
+
 {%block content%}
 
+<h1 style="text-align: center;">The Team</h1>
 
-<div class="w3-row-padding" id="about">
-    <div class="w3-col l4 12">
-      <h3>About</h3>
-      <h6>Our hotel is one of a kind. It is truely amazing. Our chairman Mr.Arunachalam is a well known businessman and a movie-critic across the country.His knowledge of movies has helped us to build the best scenic hotels for people of all tastes.</h6>
-    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
+    <br>
+  
+  <div class="row">
+    <div class="column">
+      <div class="card">  
+        <img src="{{ url_for('static',filename='images/risheek_1.jpeg') }}" alt="Jane" style="width:100%;">
+        <div class="container">
+          <h2>Risheek </h2>
+          <p class="title">CEO</p>
+          <p>Our Much Talented CEO has a great taste for vivid colours and often refered to as playgod</p>
+          <p>skr@ceg.com</p>
+          <p><a href="https://www.instagram.com/s.k.risheek_rakshit/" target="_blank"><button class="button">Contact</button></a></p>
+        </div>
+      </div>
     </div>
-    <div class="w3-col l8 12">
-      <!-- Image of location/map -->
-      <img src="{{ url_for('static',filename='images/image-deluxeroom.jpg')}}" class="w3-image w3-greyscale" style="width:100%;">
+  
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static',filename='images/praveen.jpeg') }}" alt="Mike" style="width:100%;">
+        <div class="container">
+          <br>
+          <h2>Praveen</h2>
+          <p class="title">CTO,Director</p>
+          <br>
+          <p>The nerd in the group,has a great knowledge on computer science,movies,gaming. ATLEE</p><br>
+          <p>prs@ceg.com</p>
+          <br><br><br><br>
+          <p><a href="https://www.instagram.com/praveenrs._.01/" target="_blank"><button class="button">Contact</button></a></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static',filename='images/arunachalam.jpeg') }}" alt="John" style="width:100%">
+        <div class="container">
+          <h2>TKS Arunachalam</h2>
+          <p class="title">MD</p>
+          <p>Our Chairmen is a renowned businessman and a Movie Critic.His passion for technology and films have helped us enhance our service </p>
+          <p>tks@ceg.com</p>
+          <p><a href="https://www.instagram.com/tksarunachalam/" target="_blank"><button class="button">Contact</button></a></p>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -20,9 +120,9 @@
     <div class="w3-third"><i class="fa fa-envelope w3-text-red"></i> Email: tkshotels@gmail.com</div>
   </div>
 
-  <div class="w3-panel w3-red w3-leftbar w3-padding-32">
+  <!-- <div class="w3-panel w3-red w3-leftbar w3-padding-32">
     <h6><i class="fa fa-info w3-deep-orange w3-padding w3-margin-right"></i> On demand, we can offer playstation, babycall, children care, dog equipment, etc.</h6>
-  </div>
+  </div> -->
 
   <div class="w3-container">
     <h3>Our Hotels</h3>
